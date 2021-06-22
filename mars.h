@@ -166,6 +166,17 @@ static inline void Mars_StartSoundMixer(void)
 	Mars_R_SecWait();
 }
 
+static inline void Mars_P_BeginCheckSights(void)
+{
+	while (MARS_SYS_COMM4 != 0) {};
+	MARS_SYS_COMM4 = 13;
+}
+
+static inline void Mars_P_EndCheckSights(void)
+{
+	while (MARS_SYS_COMM4 != 0);
+}
+
 #endif 
 
 #endif // _MARS_H

@@ -310,6 +310,9 @@ void Mars_Secondary(void)
 		case 12:
 			Mars_Sec_StartSoundMixer();
 			break;
+		case 13:
+			Mars_Sec_P_CheckSights();
+			break;
 		default:
 			break;
 		}
