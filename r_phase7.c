@@ -60,13 +60,13 @@ static void R_MapPlane(localplane_t* lpl, int y, int x, int x2)
 #endif
     }
 
-    FixedMul2(length, distance, distscale[x]);
-    angle = (lpl->angle + xtoviewangle[x]) >> ANGLETOFINESHIFT;
+    FixedMul2(length, distance, distscale[x2]);
+    angle = (lpl->angle + xtoviewangle[x2]) >> ANGLETOFINESHIFT;
 
     FixedMul2(xfrac, (finecosine(angle)), length);
-    xfrac = lpl->x + xfrac;
+    xfrac = -(lpl->x + xfrac);
     FixedMul2(yfrac, (finesine(angle)), length);
-    yfrac = lpl->y - yfrac;
+    yfrac = -(lpl->y - yfrac);
 
     FixedMul2(xstep, distance, lpl->basexscale);
     FixedMul2(ystep, lpl->baseyscale, distance);
